@@ -1,0 +1,145 @@
+% 5cbrn_inst.sty (V CBRN Proceedings Style for Latex)
+% Adapted from the style for the V Brazilian Symposium on Neural Networks (sbrn98.sty)
+% by Roberto Kawakami Harrop Galvao (kawakami@ele.ita.br)
+% Modifications for V CBRN by Cairo L. Nascimento Jr. (cairo@ita.br)
+% Date of last revision: 27/Jan/2001
+% --------------------------------------------------------------- %
+% with LaTeX2e:
+% =============
+%
+% use as 
+%   \documentclass[10pt,twocolumn]{article} 
+%   \usepackage{5cbrn_inst}
+%
+% --------------------------------------------------------------- 
+% with LaTeX 2.09:
+% ================
+%
+% use as 
+%   \documentstyle[art10,twocolumn,5cbrn_inst]{article}
+%
+% --------------------------------------------------------------- 
+% with both versions:
+% ===================
+%
+% specify references as
+%   \bibliographystyle{4cbrn}
+%   \bibliography{...your files...}
+%
+% use Section{} and SubSection{} instead of standard section{} 
+%    and subsection{} to obtain headings in the form 
+%    "1.3. My heading"
+%
+% ---------------------------------------------------------------
+% set dimensions of columns, gap between columns, and paragraph indent 
+
+\setlength{\textheight}{247mm}
+\setlength{\textwidth}{170mm}
+\setlength{\columnsep}{10mm}
+\setlength{\topmargin}{-13.4mm}
+%\setlength{\topmargin}{-.016in}
+\setlength{\headheight}{10mm}
+%\setlength{\headheight}{0pt}
+\setlength{\headsep}{3mm}
+%\setlength{\headsep}{0in}
+\setlength{\parindent}{5mm}
+\setlength{\oddsidemargin}{-.213in}
+\def\@maketitle
+   {\newpage
+    \begin{center}
+      {\Large \bf \@title \par}
+
+% additional two empty lines at the end of the title 
+  \vspace*{20pt} 
+      {
+      \large 
+      \lineskip .5em
+      \begin{tabular}[t]{c}
+         \@author 
+      \end{tabular}
+      \par
+      } 
+      % additional small space at the end of the author name 
+      \vskip .5em 
+      {
+       \large 
+      \begin{tabular}[t]{c}
+         \@affiliation 
+      \end{tabular}
+      \par 
+      \ifx \@empty \@email
+      \else
+         \begin{tabular}{r@{~}l}
+            E-mail: & {\tt \@email}
+         \end{tabular}
+         \par
+      \fi
+      }
+      % additional empty line at the end of the title block 
+      \vspace*{10pt} 
+   \end{center}
+   } 
+
+\def\abstract
+   {%
+   \centerline{\large\bf Abstract}%
+   \vspace*{10pt}%
+   \it%
+   }
+
+\def\endabstract
+   {
+   % additional 2 empty lines at the end of the abstract 
+   \vspace*{20pt} 
+   }
+
+\def\affiliation#1{\gdef\@affiliation{#1}} \gdef\@affiliation{}
+
+\def\email#1{\gdef\@email{#1}}
+\gdef\@email{}
+
+\newlength{\@ctmp}
+\newlength{\@figindent}
+\setlength{\@figindent}{1pc}
+
+% heading spacing and type
+\def\section{\@startsection {section}{1}{\z@}
+   {9pt plus 2pt minus 2pt}{10pt plus 2pt minus 2pt} {\large\bf}} 
+\def\subsection{\@startsection {subsection}{2}{\z@}
+   {9pt plus 2pt minus 2pt}{10pt plus 2pt minus 2pt} {\bf}}
+
+% add the period after section numbers 
+\newcommand{\Section}[1]{\section{\hskip -1em.~#1}} 
+\newcommand{\SubSection}[1]{\subsection{\hskip -1em.~#1}}
+
+
+% Creates a page style for placing a header AND
+% [Only for IV CBRN] the page number preceded by 2 zeros
+\newcommand{\ps@cbrna}{%
+   \renewcommand{\@oddhead}{
+   \begin{minipage}[b]{170mm}
+   \hfill
+   {\bf \footnotesize X Congresso Brasileiro de Intelig\^{e}ncia Computacional ({CBIC}'2011), 8 a 11 de Novembro de 2011, Fortaleza, Cear\'{a}}
+
+   \hfill
+	{\bf \footnotesize  \copyright~Sociedade Brasileira de Intelig\^{e}ncia Computacional ({SBIC})}
+   \end{minipage}
+   }
+   % [Only for IV CBRN]
+   %\renewcommand{\@evenhead}{\@oddhead}%
+   %\renewcommand{\@evenfoot}{\hfil\textrm{00\thepage}\hfil}%
+   %\renewcommand{\@oddfoot}{\@evenfoot}
+   }
+
+
+% [Only for IV CBRN]
+% Creates a page style for placing the page number preceded by 2 zeros
+%\newcommand{\ps@cbrnb}{%
+%   \renewcommand{\@oddhead}{}%
+%   \renewcommand{\@evenhead}{\@oddhead}%
+%   \renewcommand{\@evenfoot}{\hfil\textrm{00\thepage}\hfil}%
+%   \renewcommand{\@oddfoot}{\@evenfoot}
+%   }
+
+% end of file 5cbrn_inst.sty
+% ---------------------------------------------------------------
